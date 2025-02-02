@@ -1,5 +1,5 @@
-#include "MemoryManager.h"
-#include "Utils.h"
+#include "..//include/Utils.h"
+#include "..//include/MemoryManager.h"
 #include <iomanip>
 
 MemoryManager::MemoryManager(int numFrames) : numFrames(numFrames), frames(numFrames, -1) {}
