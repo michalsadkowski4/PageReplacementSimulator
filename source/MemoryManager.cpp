@@ -73,12 +73,12 @@ void MemoryManager::simulateOPT(const std::vector<int>& pages) {
             if (!placed) {
                 // ZnajdŸ stronê, która najpóŸniej bêdzie u¿ywana w przysz³oœci
                 int victimIndex = -1;
-                size_t farthest = pages.size(); // U¿ywamy size_t
+                size_t farthest = pages.size();
                 for (int j = 0; j < numFrames; ++j) {
-                    size_t nextUse = pages.size(); // U¿ywamy size_t
+                    size_t nextUse = pages.size();
                     for (size_t k = i + 1; k < pages.size(); ++k) {
                         if (pages[k] == frames[j]) {
-                            nextUse = k; // Brak konwersji
+                            nextUse = k; 
                             break;
                         }
                     }
@@ -119,7 +119,7 @@ void MemoryManager::simulateLRU(const std::vector<int>& pages) {
         }
         if (hit) {
             std::cout << "HIT" << std::endl;
-            lastUsed[hitIndex] = static_cast<int>(i); // Jawna konwersja
+            lastUsed[hitIndex] = static_cast<int>(i);
         }
         else {
             faults++;
@@ -128,7 +128,7 @@ void MemoryManager::simulateLRU(const std::vector<int>& pages) {
             for (int j = 0; j < numFrames; ++j) {
                 if (frames[j] == -1) {
                     frames[j] = page;
-                    lastUsed[j] = static_cast<int>(i); // Jawna konwersja
+                    lastUsed[j] = static_cast<int>(i);
                     placed = true;
                     break;
                 }
@@ -144,7 +144,7 @@ void MemoryManager::simulateLRU(const std::vector<int>& pages) {
                     }
                 }
                 frames[lruIndex] = page;
-                lastUsed[lruIndex] = static_cast<int>(i); // Jawna konwersja
+                lastUsed[lruIndex] = static_cast<int>(i); 
             }
         }
         printMemoryState();
